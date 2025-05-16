@@ -1,10 +1,13 @@
 import express, { Request, Response } from 'express';
-import serverless from 'serverless-http';
 
 const app = express();
+const PORT = process.env.PORT || 3000;
 
 app.get('/api/hello', (req: Request, res: Response) => {
-  res.json({ message: 'Hello from Express on Vercel!' });
+    res.json({ message: 'Hello from plain Express app!' });
 });
 
-export const handler = serverless(app);
+// app.listen(PORT, () => {
+//     console.log(`Server is running on http://localhost:${PORT}`);
+// });
+export default app;
